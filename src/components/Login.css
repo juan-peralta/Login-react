@@ -1,0 +1,23 @@
+input{
+    color: blue;
+    
+    align-items: flex-end;
+}
+#id::placeholder{
+    color: red;
+}
+button{
+    margin: 10px;
+
+  
+    background-color: royalblue;
+    color: white;
+    cursor: pointer;
+   
+}
+button:hover{
+    background-color: rgb(207, 207, 207);
+}
+button:active{
+    border: 1px solid coral;
+}
