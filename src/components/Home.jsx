@@ -9,7 +9,7 @@ const Home = () => {
 
  
   const obtenerDatos = async () => {
-    const url = "https://api.catedraldelespiritusanto.cl/public/api/grupos-persona";
+    const url = "http://127.0.0.1:8000/api/grupos-persona";
     const response = await fetch(url, {
       method: "POST",
       headers: {

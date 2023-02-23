@@ -8,14 +8,21 @@ import Inicio from "./components/Inicio";
 import Logout from "./components/Logout";
 import User from "./components/User";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { DataProvider } from "./context/DataContext";
+import Tabla from "./components/Tabla";
+
+
 
 
 
   const App = () => {
    
+   
+    const token  = localStorage.getItem("token");
+
 
   return (
-   
+   <DataProvider>
     <div className="App">
       <header className="App-header">
        
@@ -29,30 +36,47 @@ import ProtectedRoute from "./components/ProtectedRoute";
            <NavLink className="nav-link p-3 " to="/">
            <img src={logo} className="App-logo" alt="logo"  />
                 </NavLink>
-                <NavLink className="nav-link p-3" to="/Contact">
+              
+                {!token ? (
+                <NavLink className="nav-link p-3" activeclassname="active" to="/Login" >
+                    Login
+                </NavLink>
+               ) : (
+                <>
+                
+                  <NavLink className="nav-link p-3" to="/Contact">
                     Contact
                 </NavLink>
                 <NavLink className=" nav-link p-3" activeclassname="active" to="/Home" >
                     Home
                 </NavLink>
-                <NavLink className="nav-link p-3" activeclassname="active" to="/Login" >
-                    Login
-                </NavLink>
                 <NavLink className="nav-link p-3" activeclassname="active" to="/Logout" >
                   Logout
                 </NavLink>
-                
+                <NavLink className="nav-link p-3" activeclassname="active" to="/Tabla" >
+                  Tabla
+                </NavLink>
+              
+                </>
+                   )}
   
        </nav>
 
           <Routes>
-          <Route path="/" element={<Inicio/>} />
-            <Route path="/Contact" element={<Contact />}/>
+        
+              <Route path="/" element={<Inicio/>} />
               <Route path='/' element={<User/>} />
-              <Route path='/Home' element={<Home/>} />
+              <Route element={<ProtectedRoute/>}>
+                  <Route  element={<Home/>} path="/Home" />
+                  <Route path="/Logout" element={<Logout/>}/>
+                  <Route path="/Contact" element={<Contact />}/>
+                  <Route path="/Tabla" element={<Tabla />}/>
+                 
+                </Route>
+            
          
             <Route path="/Login" element={<LoginForm/>}/>
-            <Route path="/Logout" element={<Logout/>}/>
+            
            
           </Routes>
         
@@ -63,6 +87,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
        
       </header>
     </div>
+    </DataProvider>
   );
 }
 

@@ -9,6 +9,7 @@ const navigate = useNavigate();
 
     localStorage.clear();
     navigate("/Login");
+    window.location.reload(false);
   }
   return (
     

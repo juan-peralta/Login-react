@@ -7,11 +7,11 @@ input{
     color: red;
 }
 button{
-    margin: 10px;
+    margin: 5px 0px;
 
-  
+   
     background-color: royalblue;
-    color: white;
+    color: rgb(179, 178, 196);
     cursor: pointer;
    
 }
@@ -20,4 +20,15 @@ button:hover{
 }
 button:active{
     border: 1px solid coral;
+}
+.div-form{
+   justify-content: center;
+   width: 50%;
+   margin: 100px auto;
+   box-shadow: 1px red ;
+}
+form {
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: rgb(134, 190, 255);
+
 }

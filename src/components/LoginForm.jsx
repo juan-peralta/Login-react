@@ -8,9 +8,9 @@ const LoginForm = () => {
 
   const [rut, setRut] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(null);
-const navigate = useNavigate();
-const [loading, setLoading] = useState(false);
+ const [token, setToken] = useState(null);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
 
 
@@ -30,7 +30,7 @@ const [loading, setLoading] = useState(false);
     try {
       
       // Enviar una solicitud al servidor para autenticar al usuario
-      const response = await fetch("https://api.catedraldelespiritusanto.cl/public/api/login", {
+      const response = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
         body: JSON.stringify({ rut: rut_number, dv: rut_verifier, password }),
         headers: { "Content-Type": "application/json" },
@@ -46,11 +46,12 @@ const [loading, setLoading] = useState(false);
       setTimeout(() => {
         setLoading(false);
         if(data.access_token){ 
-          return navigate("/Home");
+           navigate("/Home");
+           window.location.reload(false);
         }else{
           return navigate("/Login");
         }
-      }, 2000); // Esperar 2 segundos antes de redirigir
+      }, 1000); // Esperar 2 segundos antes de redirigir
     
 
 
@@ -60,11 +61,13 @@ const [loading, setLoading] = useState(false);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-3">
-      <div className="mb-3">
-      <div class="mt-3 mb-3 ">
+  <div className="mb-3 container div-form">
+    <form onSubmit={handleSubmit} className="p-3 ">
+      
+      <div className="mt-3 mb-3 ">
+        <label className="">Rut</label>
         <input
-          class="form-control"
+          className="form-control"
           type="text"
           id="rut"
           placeholder="rut"
@@ -75,9 +78,10 @@ const [loading, setLoading] = useState(false);
     
 
       <br />
-      <div class="mb-1">
+      <div className="mb-1">
+      <label className="">Contraseña</label>
         <input
-          class="form-control"
+          className="form-control"
           type="password"
           id="password"
           placeholder="password"
@@ -86,7 +90,7 @@ const [loading, setLoading] = useState(false);
         />
       </div>
       <br />
-      <div class="mb-1">
+      <div className="mb-1">
       { loading && (
         
           <Spinner animation="grow" variant="light" role="status">
@@ -94,16 +98,17 @@ const [loading, setLoading] = useState(false);
           </Spinner>
         )}
         </div>
-      <div class="mb-1">
+      <div className="mb-1">
         <button
-          class="btn btn-primary"
+          className="btn btn-secondary"
           type="submit">
           Iniciar sesión
         </button>
       </div>
     
-      </div>
+    
     </form>
+      </div>
   );
 }
 
