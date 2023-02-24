@@ -10,8 +10,8 @@ import User from "./components/User";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { DataProvider } from "./context/DataContext";
 import Tabla from "./components/Tabla";
-
-
+import Hermeneutica from "./components/seminario/hermeneutica/Hermeneutica";
+import Introduccion from "./components/seminario/hermeneutica/Introduccion";
 
 
 
@@ -36,8 +36,12 @@ import Tabla from "./components/Tabla";
            <NavLink className="nav-link p-3 " to="/">
            <img src={logo} className="App-logo" alt="logo"  />
                 </NavLink>
-              
+                <NavLink className="nav-link p-3" activeclassname="active" to="/Hermeneutica" >
+                     Hermeneutica
+                 </NavLink>
+                
                 {!token ? (
+                   
                 <NavLink className="nav-link p-3" activeclassname="active" to="/Login" >
                     Login
                 </NavLink>
@@ -63,8 +67,10 @@ import Tabla from "./components/Tabla";
        </nav>
 
           <Routes>
-        
+          
               <Route path="/" element={<Inicio/>} />
+              <Route path="/Hermeneutica" element={<Hermeneutica/>} />
+              <Route path="/Introduccion" element={<Introduccion/>} />
               <Route path='/' element={<User/>} />
               <Route element={<ProtectedRoute/>}>
                   <Route  element={<Home/>} path="/Home" />

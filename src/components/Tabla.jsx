@@ -1,81 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+const Tabla = () => {
 
-function Tabla() {
-  const [data, setData] = useState([
-    { id: 1, name: 'John', age: 28 },
-    { id: 2, name: 'Jane', age: 35 },
-    { id: 3, name: 'Bob', age: 42 },
+  const [data, setData] = useState({});
+  const [jsonData, setJsonData] = useState([]);
+  const token = localStorage.getItem("token");
+
+
+   const obtenerDatos = async () => {
+    const url = "https://api.catedraldelespiritusanto.cl/public/api/grupos-persona";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    const jsonData = await response.json();
+    setJsonData(jsonData);
+    console.log(jsonData)
+  };
+
+  useEffect(() => {
+    obtenerDatos();
+  }, []);
+
+
+  const [busqueda, setBusqueda] = useState('');
+  const [usuarios, setUsuarios] = useState([
+    { id: 1, nombre: 'Juan' },
+    { id: 2, nombre: 'Pedro' },
+    { id: 3, nombre: 'Maria' },
+    { id: 4, nombre: 'Laura' },
   ]);
 
-  const [filters, setFilters] = useState({
-    name: '',
-    age: '',
-  });
-
-  const handleFilterChange = (event) => {
-    setFilters({ ...filters, [event.target.name]: event.target.value });
+  const handleInputChange = event => {
+    setBusqueda(event.target.value);
   };
 
-  const applyFilters = () => {
-    let filteredData = data;
+  const usuariosFiltrados = usuarios.filter(usuario =>
+    usuario.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+    usuario.id.toString().toLowerCase().includes(busqueda.toLowerCase())
 
-    if (filters.name) {
-      filteredData = filteredData.filter((item) =>
-        item.name.toLowerCase().includes(filters.name.toLowerCase())
-      );
-    }
-
-    if (filters.age) {
-      filteredData = filteredData.filter(
-        (item) => item.age.toString() === filters.age
-      );
-    }
-
-    return filteredData;
-  };
-
-  const handleFilterApply = () => {
-    const filteredData = applyFilters();
-    setData(filteredData);
-  };
+  );
+  const miembrosFiltrados = jsonData.celula && jsonData.celula.miembros.filter(miembro =>
+    miembro.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
 
   return (
     <div>
-      <input
-        type="text"
-        name="name"
-        value={filters.name}
-        onChange={handleFilterChange}
-        placeholder="Filter by name"
-      />
-      <input
-        type="text"
-        name="age"
-        value={filters.age}
-        onChange={handleFilterChange}
-        placeholder="Filter by age"
-      />
-      <button onClick={handleFilterApply}>Apply Filters</button>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.age}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1>Usuarios</h1>
+      <input type="text" value={busqueda} onChange={handleInputChange} />
+      <ul>
+        {usuariosFiltrados.map(usuario => (
+          <li key={usuario.id}>{usuario.id}{usuario.nombre}</li>
+        ))}
+          {miembrosFiltrados && miembrosFiltrados.map((miembro, index) => (
+          <li className="list-group-item" key={index}>{miembro.nombre} - {miembro.value}</li>
+        ))}
+      </ul>
     </div>
   );
-}
-
-export default Tabla;
+};
+export default Tabla

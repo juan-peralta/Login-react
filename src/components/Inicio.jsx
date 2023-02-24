@@ -1,12 +1,18 @@
 import React from 'react'
 import logo from "../logo.svg";
+import "./Inicio.css";
+
 
 const Inicio = () => {
   return (
-    <div>
-        <h2 className='m-4 text-center '>Pantalla de inicio</h2>
-        <img src={logo} className="text-center" alt="logo"  />
-      
+    <div className='p-3'>
+        <h2 className='m-4 text-center '>Home</h2>
+
+        <div className="container">
+         
+        </div>
+       
+     
     </div>
   )
 }

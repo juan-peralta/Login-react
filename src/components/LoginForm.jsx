@@ -30,7 +30,7 @@ const LoginForm = () => {
     try {
       
       // Enviar una solicitud al servidor para autenticar al usuario
-      const response = await fetch("http://127.0.0.1:8000/api/login", {
+      const response = await fetch("https://api.catedraldelespiritusanto.cl/public/api/login", {
         method: "POST",
         body: JSON.stringify({ rut: rut_number, dv: rut_verifier, password }),
         headers: { "Content-Type": "application/json" },
