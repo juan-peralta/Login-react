@@ -23,6 +23,8 @@ import Estudios from "./components/seminario/Estudios";
 import Asentamiento from "./components/seminario/mundoBiblico/Asentamiento";
 import EstudioBiblico from "./components/seminario/EstudioBiblico/EstudioBiblico";
 import Personal from "./components/seminario/EstudioBiblico/Personal";
+import IntroduccionSat from "./components/seminario/sinopsisAT/IntroduccionSat";
+import PrimeraDeReyes from "./components/seminario/sinopsisAT/PrimeraDeReyes";
 
 const App = () => {
   const token = localStorage.getItem("token");
@@ -87,6 +89,8 @@ const App = () => {
               <Route path="/EstudioBiblico" element={<EstudioBiblico />} />
               <Route path="/Asentamiento" element={<Asentamiento />} />
               <Route path="/Estudios" element={<Estudios />} />
+              <Route path="/IntroduccionSat" element={<IntroduccionSat />} />
+              <Route path="/PrimeraDeReyes" element={<PrimeraDeReyes />} />
               <Route path="/" element={<Inicio />} />
               <Route
                 path="/IntroduccionMundoBiblico"

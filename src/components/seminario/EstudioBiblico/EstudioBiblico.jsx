@@ -5,7 +5,7 @@ import "./EstudioBiblico.css";
 const EstudioBiblico = () => {
   return (
     <div>
-      <p className="p-3">
+      <p className="p-3 text-primary">
         Métodos de Estudio Bíblico es una introducción al método inductivo para
         estudiar la Biblia tomando en cuenta los pasos de la observación
         cuidadosa del texto, luego su interpretación, aplicación y correlación,

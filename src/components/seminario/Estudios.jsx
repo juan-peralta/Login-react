@@ -26,6 +26,13 @@ function Estudios() {
       >
         <h6>Estudio Biblico</h6>
       </NavLink>
+      <NavLink
+        className="nav-link p-3 bg-light"
+        activeclassname="active"
+        to="/IntroduccionSat"
+      >
+        <h6>Sinopsis AT</h6>
+      </NavLink>
     </li>
   </ul>
   )
