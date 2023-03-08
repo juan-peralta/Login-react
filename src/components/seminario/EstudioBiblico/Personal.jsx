@@ -2,7 +2,7 @@ import React from 'react'
 
 const Personal = () => {
   return (
-    <div>
+    <div className='p-3'>
          <h3>NUESTRO ESTUDIO BÍBLICO PERSONAL: COMO HACERLO MAS FRUCTIFERO</h3>
       <h6>Por James D. Crane</h6>
       <p>

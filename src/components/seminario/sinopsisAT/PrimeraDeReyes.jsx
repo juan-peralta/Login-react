@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from 'react';
 
 const PrimeraDeReyes = () => {
+
+  const [colorSeleccion, setColorSeleccion] = useState('red');
+  const [texto, setTexto] = useState('');
+
+  function handleSelect() {
+    const seleccion = window.getSelection();
+    if (seleccion.rangeCount > 0) {
+      const rango = seleccion.getRangeAt(0);
+      const nuevoSpan = document.createElement('span');
+      nuevoSpan.style.color = colorSeleccion;
+      nuevoSpan.appendChild(rango.extractContents());
+      rango.insertNode(nuevoSpan);
+    }
+  }
+  function handleColorChange(nuevoColor) {
+    setColorSeleccion(nuevoColor);
+  }
   return (
     <div className="p-3">
       <h3>1ª DE REYES: COMO PERDER UN REINO</h3>
-      <p>
+      <button onClick={() => handleColorChange('red')}>Rojo</button>
+        <button onClick={() => handleColorChange('blue')}>Azul</button>
+        <button onClick={() => handleColorChange('green')}>Verde</button>
+      <p onMouseUp={handleSelect}>
         Primera de Reyes es una historia de cómo se pierde un reino, un relato
         que absorbe nuestra atención. Al leer estos dos libros del Antiguo
         Testamento, la clave para conseguir que cobren vida y sean de vital
@@ -237,6 +257,292 @@ const PrimeraDeReyes = () => {
         mente de Cristo y "el hombre espiritual lo juzga todo. (1ª Cor. 2:15,
         16) No necesita que nadie le enseñe, porque ya discierne todas las cosas
         y puede analizar y entenderlas.
+      </p>
+      <p>
+        En el capítulo cuatro encontramos la tercera señal de lo que significa
+        reinar: el sentido del orden. Un reino tiene que estar en orden. Dios no
+        es autor de confusión, sino que hace las cosas decentemente y con orden.
+        Además en el capítulo cuatro, versículo 20, encontramos la cuarta señal
+        de la autoridad:
+      </p>
+      <p>
+        Judá e Israel eran tan numerosos como las arenas del mar, comían y
+        bebían y eran felices. Salomón gobernaba sobre todos los reinos, desde
+        el Eufrates a la tierra de los filisteos hasta la frontera de Egipto,
+        que le trajeron tributos y sirvieron a Salomón durante todos los días de
+        su vida. Ese es el control total sobre todo lo que Dios quiso que
+        tuviese. ¿Ha aprendido usted a reinar de ese modo sobre su propia vida?
+        Eso es lo que Dios quiere que tenga usted.
+      </p>
+      <p>
+        En los capítulos del cinco al ocho encontramos el relato del glorioso
+        templo que edificó Salomón. Este maravilloso edificio era precioso. El
+        interior era incluso más glorioso que el exterior y estaba todo
+        completamente cubierto de oro. El entrar en aquel santuario debió de ser
+        una experiencia asombrosa. Todo lo que se podía tocar estaba cubierto de
+        oro, pero la gloria principal del lugar era la gloria de la Shekinah de
+        Dios, que descendió y habitó en el lugar santo cuando Salomón dedicó el
+        templo.
+      </p>
+      <p>
+        En una oración maravillosa que hace, Salomón le da gracias a Dios por su
+        gracia y reconoce una vez más el único e importante principio sobre el
+        cual se debe de mantener un reino es la obediencia de su rey al trono de
+        Dios.
+      </p>
+      <p>
+        A continuación encontramos la historia, maravillosamente detallada, de
+        las visitas que le hacen a Salomón la Reina de Saba y del Rey de Tiro y
+        el reconocimiento de las demás naciones de la gloria del reino de
+        Salomón. De repente, al principio del capítulo 11, se produce un giro en
+        toda la historia y esta sigue otro curso diferente. En él leemos acerca
+        de los resultados de las semillas del mal que habían sido anteriormente
+        sembradas en el corazón de Salomón:
+      </p>
+      <p>
+        "Pero el rey Salomón amó, además de la hija de faraón, a muchas otras
+        mujeres extranjeras: moabitas, edomitas, sidonias y heteas..."
+      </p>
+      <p>Estas son tribus paganas.</p>
+      <p>
+        "...de los pueblos que Jehová había dicho a los hijos de Israel: No os
+        unáis a ellos ni ellos se unan a vosotros, no sea que hagan desviar
+        vuestros corazones tras sus dioses. A estos Salomón se apegó con amor.
+        Tuvo 700 mujeres reinas y 300 concubinas [en la mayor subestimación de
+        la realidad de la Biblia]. Y sus mujeres hicieron que se desviara su
+        corazón."
+      </p>
+      <p>
+        Este es el mismo hombre que había escrito en el libro de Proverbios: "El
+        que halla esposa halla el bien. (Prov. 18:22) Este es el ejemplo más
+        importante que conozco, es un ejemplo que ha sido llevado a los
+        extremos. ¡Mil esposas! ¡Alguien ha dicho que fue sobradamente castigado
+        teniendo que soportar a mil suegras! Pero esto pone además de manifiesto
+        la debilidad y el fracaso de Salomón al apartarse su corazón de Dios.
+        Fijémonos cómo empezó todo. Este hombre disfrutaba de todo lo espléndido
+        de su gobierno, teniendo la mayor gloria del reino que le había sido
+        encomendado. La magnificencia exterior, acerca de la cual leemos aquí,
+        era la evidencia de la bendición de Dios en su vida, pero su caída
+        comenzó cuando su corazón se dejó arrastrar por algo que Dios había
+        prohibido. Esto concuerda exactamente con la advertencia que hace Jesús
+        en el Sermón del Monte, cuando dice: "Porque donde esté vuestro tesoro,
+        allí también estará vuestro corazón. (Lucas 12:34) El primer paso en la
+        decadencia moral empieza siempre con nuestras emociones. ¿Alrededor de
+        qué giran sus emociones? ¿Qué es lo que apodera del lugar central de las
+        emociones en su vida? Ahí es donde empieza la decadencia. A continuación
+        leemos que a esto le siguió la idolatría:
+      </p>
+      <p>
+        "Porque Salomón siguió a Astarte [la diosa de la sexualidad] diosa de
+        los sidonios y a Moloc, ídolo detestable de los amonitas. Salomón hizo
+        lo malo ante los ojos de Jehová y no siguió plenamente a Jehová como su
+        padre David. Entonces Salomón edificó un lugar alto a Quemós, ídolo
+        detestable de Moab...." (11:5-7a)
+      </p>
+      <p>
+        Quemós era la imagen detestable en la que se construyó una hoguera y
+        cuando llegó el momento de celebrar el festival religioso, echaron a los
+        niños al fuego y fue Salomón el que edificó este lugar, en el cual los
+        ritos giraban alrededor de la adoración de este dios sonriente.
+      </p>
+      <p>
+        "...y a Moloc, ídolo detestable de los hijos de Amón [otro dios de la
+        fertilidad], en el monte que está frente a Jerusalén. Y así hizo para
+        todas sus mujeres extranjeras, las cuales quemaban incienso y ofrecían
+        sacrificios a sus dioses. Jehová se indignó contra Salomón, porque su
+        corazón se había desviado de Jehová..." (11:7b-9a)
+      </p>
+      <p>
+        En tres ocasiones y en rápida sucesión en el resto de este capítulo
+        "Dios le levantó un adversario en contra de Salomón. Primero fue Hadad,
+        el edomita, que representa al hombre carnal. Luego se nos dice en el
+        versículo 23:
+      </p>
+      <p>
+        "Dios también le levantó un adversario como adversario a Rezón, hijo de
+        Eliada, quien había huido de su señor Hadad-ezer, rey de Soba."
+      </p>
+      <p>Se nos dice en el versículo 26:</p>
+      <p>
+        "También Jeroboam, hijo de Nabat, servidor de Salomón, efrateo de
+        Zereda... que después habría de dividir el reino. De manera que estos
+        adversarios se reunieron para derrocar a Salomón y conseguir su
+        derrota."
+      </p>
+      <p>
+        El capítulo concluye diciendo de Salomón que "reposó con sus padres y
+        fue enterrado en la ciudad de David, lo cual representa el colapso de su
+        gloria y de la majestad de su reino.
+      </p>
+      <p>
+        Hace poco oí hablar acerca de un hombre que había ejercido un gran poder
+        desde el púlpito y había realizado un tremendo ministerio para Dios, en
+        varios sentidos, y de repente todo su ministerio se vino abajo y fue
+        llevado antes de su sesión, acusado de cargos morales. Se descubrió que
+        había existido un amor en su corazón que no había sido juzgado y que
+        había mantenido oculto, año tras año. A pesar del aparente poder y
+        autoridad exteriores, de los que se valía en su ministerio, había en su
+        corazón emociones que le estaban carcomiendo y la semilla que habría de
+        acabar con su reinado. Esta historia se repite de nuevo en vidas por
+        todas partes.
+      </p>
+      <p>
+        El segundo movimiento de este libro comienza en el capítulo 12, en el
+        que leemos acerca de la degradación y la dispersión del reino. Jeroboam
+        dividió el reino, llevándose a las diez tribus del norte para iniciar el
+        Reino del Norte, volviendo a introducir en Israel la terrible adoración
+        a los carneros de oro. Mucho antes, cuando Moisés se encontraba en la
+        montaña, teniendo comunión con Dios, el pueblo fue a Aarón y le dijo:
+        "queremos tener un Dios al que podamos adorar como lo hacen las otras
+        naciones. ¿Recuerda usted lo que le dijo Aarón a Moisés cuando descendió
+        de la montaña? Le dijo: "Les pedí que trajesen todo su oro, todos sus
+        pendientes y sus joyas, cogí todo ese oro, lo eché al fuego y de él
+        salió, de buenas a primeras, un carnero. Nosotros nos inclinamos y lo
+        adoramos, llamándolo Jehová. (Ex. 32:23, 24). No era que quisieran ser
+        idólatras, sencillamente querían una evidencia visible sobre la que
+        centrar su adoración. Ahora nos encontramos con el pecado cometido por
+        Jeroboam. A partir de ese momento se le conoce en Israel como "Jeroboam,
+        el hijo de Nabat, que hizo que pecase Israel. En este caso no es un
+        carnero, sino dos. Es el mismo pecado multiplicado, doblado en su
+        intensidad y en su poder, el que introduce Jeroboam en la vida de la
+        nación.
+      </p>
+      <p>
+        El capítulo 14 nos presenta la historia de la invasión y la derrota de
+        Israel por parte de Egipto, el mismo Egipto del cual había sacado Dios a
+        su pueblo, que vuelve a ser una imagen del mundo y sus costumbres, su
+        maldad, su insensatez, frivolidad y su locura. Leemos en 14:25 y 26:
+      </p>
+      <p>
+        "Y sucedió en el quinto año del rey Roboam que subió Sisac, rey de
+        Egipto, contra Jerusalén y tomó los tesoros de la casa de Jehová..."
+      </p>
+      <p>Lo primero que asaltó fue el lugar de la adoración.</p>
+      <p>
+        "...y los tesoros de la casa del rey; todo lo tomó. También tomó todos
+        los escudos de oro que había hecho Salomón..."
+      </p>
+      <p>
+        ¿Entiende usted esta imagen? Salomón, que conocía a Dios y que se
+        esforzaba por andar con él no juzgó totalmente las emociones y las
+        uniones establecidas en su corazón, por lo que fue finalmente arruinado
+        subrepticiamente y volvió a las costumbres mundanas, con todas sus
+        insensatas manifestaciones, por lo que perdió la gloria interior y su
+        sentido de adoración en el que Dios debería haber sido exaltado en el
+        templo interior de su propia vida. Después de esto, el relato nos habla
+        acerca de varios reyes que ocuparon el trono de Israel. A Nadab le
+        siguieron Baasa y Zimri y finalmente Acab con su malvada mujer, llamada
+        Jezabel.
+      </p>
+      <p>
+        La parte final del libro, empezando por el capítulo 17, nos presenta el
+        ministerio profético empezando con Elías. Hubo otros profetas antes de
+        él, pero no realizaron milagros. Elías comienza el ministerio de los
+        milagros en la Biblia. Los profetas que llevaron a cabo su ministerio en
+        Judá, el Reino del Sur, no hicieron milagros porque en aquel entonces el
+        testimonio de Dios era lo más importante para la vida de la nación, pero
+        en Israel, el Reino del Norte, la presencia de Dios fue rechazada y
+        adoraron en su lugar los becerros de oro. En este caso el ministerio de
+        los milagros es el testimonio ante el pueblo de que Dios sigue estando
+        entre ellos. Dios intentó conmoverles para que fuesen conscientes de que
+        se habían apartado de él. El ministerio de Elías es una fantástica
+        revelación de la manera cómo Dios trata al corazón humano descarriado.
+        Para empezar, en su ministerio, cerró los cielos, de manera que no
+        llovió sobre la tierra durante tres años. A continuación hizo descender
+        fuego del cielo sobre los dirigentes y otros, que habían sido enviados
+        para arrestarle y traerle ante la presencia del rey. Cuando estos
+        milagros empezaron a llamar la atención del pueblo, se produjo el
+        arrepentimiento, hasta cierto punto. Entendieron que Dios estaba
+        actuando con mano dura, como lo hace en ocasiones con nosotros, para
+        castigarnos y juzgarnos, a fin de que despertemos y seamos conscientes
+        de que nos estamos apartando de la adoración a él en el fondo de
+        nuestros corazones.
+      </p>
+
+      <p>
+        Cuando sucedió esto, se produjo por fin el juicio a Baal, y las dos
+        filosofías de Israel chocaron en una confrontación que tuvo lugar en el
+        Monte Carmelo. Dios vindicó su honor enviando fuego del cielo para
+        destruir la ofrenda de Elías, incluyendo toda el agua que fue derramada
+        sobre la ofrenda y el altar de piedra y Dios reinó con gran poder.
+        Cuando cayó dicho juicio, se volvieron a abrir los cielos y la lluvia
+        cayó sobre la tierra. Todo ello es una imagen de lo que sucede en
+        nuestras vidas cuando nos resistimos al derecho que tiene Dios a
+        gobernar nuestros corazones. Entonces Dios nos somete a su reprensión y,
+        por fin, vence nuestra testarudez, poniendo fin a la rebelión
+        intencional y por fin somos humillados ante Dios. Entonces es cuando la
+        lluvia de Dios se derrama en nuestros corazones para dar nuevamente
+        fruto y traer bendición.
+      </p>
+      <p>
+        Siguiendo a todo lo anteriormente dicho nos encontramos con el
+        extraordinario relato del temor que le tenía Elías a Jezabel. Esto es
+        algo que siempre me divierte. Aquí tenemos a un intrépido profeta, un
+        vigoroso hombre de Dios que se había enfrentado él solo con
+        cuatrocientos sacerdotes sobre la cima de la montaña, corriendo
+        aterrorizado de una mujer enfurecida, clamando mientras se oculta bajo
+        un arbusto de junípero: "Señor, ya he tenido bastante. Ya tuve más que
+        suficiente al tener que enfrentarme con cuatrocientos sacerdotes de
+        Baal, como para que esta mujer venga tras de mi, esto ya es demasiado.
+        Ella estaba amenazando su vida. Esto resulta divertido porque Elías
+        dice: "Señor, ya he tenido suficiente, quítame la vida, pero como es
+        natural eso no lo dice en serio. Todo lo que hubiera tenido que hacer
+        hubiera sido salir a buscar a Jezabel y ella hubiera satisfecho su
+        deseo. Pero en lugar de ello, se oculta bajo el junípero, a pesar de lo
+        cual Dios le trata con su gracia maravillosa. Lo primero que hace es
+        acostarle y concederle una buena noche de descanso y a continuación Dios
+        le ofrece una buena comida. Finalmente Dios le enseña el secreto más
+        importante que jamás había aprendido Elías, que Dios no siempre se
+        manifiesta a través del terremoto, del fuego y del trueno, sino que en
+        muchas ocasiones lo hace a través del silbo apacible y tranquilo de una
+        conciencia transformada.
+      </p>
+      <p>
+        El libro termina con la historia del rey Acab, su fracaso, su insensatez
+        y su deseo egoista de apoderarse de la viña de Nabot, haciendo que caiga
+        el juicio de Dios. En el capítulo 22 nos enteramos de cómo obra Dios por
+        medio de lo que parecen circunstancias accidentales. Los dos reyes, el
+        de Israel y el de Judá, salen al campo de batalla. Acab, rey de Israel,
+        intenta conseguir, en su endiablada sabiduría, que el rey de Judá se
+        coloque en la primera línea del campo de batalla. Acab le pone al rey de
+        Judá su propia armadura para que le confundan con el rey de Israel y le
+        ataquen, pero al felicitarse el rey Acab por la manera en que ha
+        engañado al rey de Judá para que se exponga al peligro, leemos que voló
+        una flecha por el aire (por casualidad) de un guerrero del lado
+        contrario y encuentra su objetivo, atravesando la armadura y dándole de
+        lleno en el corazón. ¡De este modo Dios emite su juicio! Dios es el Dios
+        de las circunstancias, de los accidentes y se encuentra tras todos los
+        acontecimientos de nuestra vida. Eso es lo que nos revela esta historia.
+      </p>
+      <p>
+        Al concluir este libro de 1ª de Reyes, el versículo que más fijamente se
+        me ha quedado grabado en mi mente y en mi corazón es éste:
+      </p>
+      <p>
+        "Sobre toda cosa guardada, guarda tu corazón porque de él emana la
+        vida." (Prov. 4:23)
+      </p>
+      <p>
+        Las circunstancias exteriores no deben nunca destronarle e impedir que
+        reine usted sobre su vida. Nada de lo que tenga usted que afrontar, en
+        cuanto a tensiones externas y circunstancias del exterior, conseguirán
+        destronarle. Esto y el que vuelva a encontrarse usted sometido a
+        esclavitud y atado por la carne y el demonio, será algo que solo
+        sucederá si permite usted que alguna adoración rival se apodere de su
+        corazón y destrone a Dios. Cuando sus emociones se encariñen con alguna
+        otra cosa, que rivalice con la adoración a Dios, sus días en el reino
+        estarán contados.
+      </p>
+      <p>Oración</p>
+      <p>
+        Padre nuestro, te pedimos que hagas posible que aprendamos la importante
+        lección de este libro y que la guardemos en nuestros corazones porque
+        "del corazón emana la vida." Al contemplar el lugar importante que ocupa
+        nuestro deseo, aprendemos a saber lo que más deseamos en la vida. Señor,
+        ¿a quién tenemos en el cielo aparte de ti y a quién deseamos en la
+        tierra más que a ti? Te pedimos que podamos responder a esa pregunta en
+        la soledad de nuestros corazones ante ti. Te lo pedimos en el nombre de
+        Cristo, amen.
       </p>
     </div>
   );

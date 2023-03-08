@@ -6,7 +6,7 @@ import "./Inicio.css";
 const Inicio = () => {
   return (
     <div className='p-3'>
-        <h2 className='m-4 text-center '>Home</h2>
+        <h2 className='m-4 text-center '></h2>
 
         <div className="container">
          

@@ -25,7 +25,9 @@ import EstudioBiblico from "./components/seminario/EstudioBiblico/EstudioBiblico
 import Personal from "./components/seminario/EstudioBiblico/Personal";
 import IntroduccionSat from "./components/seminario/sinopsisAT/IntroduccionSat";
 import PrimeraDeReyes from "./components/seminario/sinopsisAT/PrimeraDeReyes";
-
+import Portafolio from "./components/portafolio/Portafolio";
+import LeyesEspirituales from "./components/leyesEspirituales/LeyesEspirituales";
+//rafce
 const App = () => {
   const token = localStorage.getItem("token");
 
@@ -35,18 +37,34 @@ const App = () => {
         <header className="App-header">
           <Router>
             <nav className="navbar navbar-expand-lg bg-body-tertiary bg-secondary container-fluid">
-              <NavLink className="nav-link p-3 " to="/">
+              {/* <NavLink className="nav-link p-3 " to="/">
                 <img src={logo} className="App-logo" alt="logo" />
-              </NavLink>
-              <NavLink
+              </NavLink> */}
+              {/* <NavLink
                 className="nav-link p-3"
                 activeclassname="active"
                 to="/Estudios"
               >
                 Estudios
+              </NavLink> */}
+              {/* <NavLink
+                className="nav-link p-3"
+                activeclassname="active"
+                to="/Portafolio"
+              >
+                 <img src={logo} className="App-logo" alt="logo" />
+                Portafolio
+              </NavLink> */}
+              <NavLink
+                className="nav-link p-3"
+                activeclassname="active"
+                to="/LeyesEspirituales"
+              >
+                 <img src={logo} className="App-logo" alt="logo" />
+                4 Leyes Espirituales
               </NavLink>
 
-              {!token ? (
+              {/* {!token ? (
                 <NavLink
                   className="nav-link p-3"
                   activeclassname="active"
@@ -81,7 +99,7 @@ const App = () => {
                     Tabla
                   </NavLink>
                 </>
-              )}
+              )} */}
             </nav>
 
             <Routes>
@@ -92,6 +110,8 @@ const App = () => {
               <Route path="/IntroduccionSat" element={<IntroduccionSat />} />
               <Route path="/PrimeraDeReyes" element={<PrimeraDeReyes />} />
               <Route path="/" element={<Inicio />} />
+              <Route path="/Portafolio" element={<Portafolio/>} />
+              <Route path="/leyesEspirituales" element={<LeyesEspirituales/>}/>
               <Route
                 path="/IntroduccionMundoBiblico"
                 element={<IntroduccionMundoBiblico />}

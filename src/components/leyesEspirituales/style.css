@@ -1,0 +1,45 @@
+h1,
+h3,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+p {
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+}
+h2{
+    font-size: 23px;
+}
+h3{
+    font-size: 20px;
+    text-align: left;
+    font-weight: 400;
+}
+
+span {
+    font-weight: bold;
+    font-size: 18px;
+}
+.v-clave{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
+}
+.container{
+    background-color: white;
+    color: black;
+  }
+  
+  /* Estilos para el modo oscuro */
+  .container.dark-mode {
+    background-color: black;
+    color: white;
+  }
